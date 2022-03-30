@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request, json, jsonify
 import random
+import time
 
 import base64#imgkit
 import os#imgkit
 import sys#imgkit
 from imagekitio import ImageKit#imgkit
+
 
 def reflashImagekitKey():
   imagekit = ImageKit(
@@ -59,7 +61,10 @@ def add_data():
       "menu_text": request.form["menu_text"],
       "prefer_dish_img_url": request.form["prefer_dish_img_url"],
       "prefer_dish_text": request.form["prefer_dish_text"],
-      "restaurant_googlemap_link": request.form["restaurant_googlemap_link"]
+      "restaurant_googlemap_link": request.form["restaurant_googlemap_link"],
+      "creat_time":time.ctime(time.time()+28800),
+      "accept":False,
+      "creator":""
     }
   )
   data["restaurant_amount"] += 1

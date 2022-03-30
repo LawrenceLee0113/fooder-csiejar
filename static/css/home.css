@@ -90,3 +90,6 @@
 .information_page img{
     width: 100%;
 }
+#restaurant_title span{
+  font-size: 20px;
+}

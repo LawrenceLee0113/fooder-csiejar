@@ -16,14 +16,14 @@ $(document).ready(function () {
                 var restaurant_googlemap_link = data.restaurant_googlemap_link;
                 var restaurant_num = data.restaurant_num;
                 
-                $("#restaurant_title").html(restaurant_title);
+               var numstr="#"+restaurant_num;
+                 $("#restaurant_title").html(restaurant_title+numstr);
                 $("#view_img").prop("src",restaurant_img_url);
                 $(".check_menu_page img").prop("src",menu_img_url);
                 $("#menu_text").html(menu_text);
                 $(".prefer_dish_page img").prop("src",prefer_dish_img_url);
                 $("#prefer_dish_text").html(prefer_dish_text);
                 $("#restaurant_googlemap_link").prop("href",restaurant_googlemap_link);
-                $("#restaurant_num").html("#"+restaurant_num);
 
                 $(".loadding_page").hide();
                 $(".show_page").show();
