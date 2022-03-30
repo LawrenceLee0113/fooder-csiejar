@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>增加餐廳數量</title>
+    <script src="../static/script/jquery3.6.0.js"></script>
+    <!--     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="../static/script/addMenu.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+    </style>
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/edit.css">
+
+</head>
+
+<body>
+    <div class="header">
+        <input type="checkbox" id="menu_control">
+        <h1>今天午餐吃啥？</h1>
+        <label class="menuBtn" for="menu_control"></label>
+        <nav>
+            <a href="https://fooder.csiejar.xyz/">首頁</a>
+            <a href="https://fooder.csiejar.xyz/add_restaurant">增加餐廳清單</a>
+            <a href="">link</a>
+            <a href="">link</a>
+        </nav>
+    </div>
+
+    <style>
+        .hint_page{
+            width: 90%;
+            position: fixed;
+            top: 100px;
+            /* right: 5%; */
+            right: 0;left: 0;
+            margin: auto;
+            /* height: 80vw; */
+            background-color: #aaa;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            /* display: block; */
+        }
+        .hint_page h1{
+            text-align: center;
+        }
+        .hint_page .buttons{
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+        }
+        .hint_page .uploaded{
+            display: none;
+        }
+    </style>
+    <div class="input_area">
+        <div class="input_item">
+            <label>餐廳名稱：</label>
+            <div class="input_box">
+                <input type="text" id="restaurant_title" />
+            </div>
+        </div>
+        <div class="input_item img_item url_item">
+            <label>餐廳照片：</label>
+            <div class="input_box">
+                <input type="text" id="restaurant_img_url" />
+                <input type="file" id="restaurant_img_url_file_btn">
+            </div>
+        </div>
+        <div class="input_item img_item url_item">
+            <label>菜單照片：</label>
+            <div class="input_box">
+                <input type="text" id="menu_img_url" />
+                <input type="file" id="menu_img_url_file_btn">
+            </div>
+        </div>
+        <div class="input_item text_item">
+            <label>菜單說明：</label>
+            <div class="input_box"><textarea type="text" id="menu_text"></textarea></div>
+        </div>
+        <div class="input_item img_item url_item">
+            <label>推薦餐點照片：</label>
+            <div class="input_box">
+                <input type="text" id="prefer_dish_img_url" />
+                <input type="file" id="prefer_dish_img_url_file_btn">
+            </div>
+        </div>
+        <div class="input_item text_item">
+            <label>推薦餐點說明：</label>
+            <div class="input_box"><textarea type="text" id="prefer_dish_text"></textarea></div>
+        </div>
+        <div class="input_item url_item">
+            <label>google map網址：</label>
+            <div class="input_box"><input type="text" id="restaurant_googlemap_link" /></div>
+        </div>
+        <div class="input_item">
+            <button id="submit">送出</button>
+        </div>
+    </div>
+    <div class="loadding_page">
+        <div class="center_s">
+            <div class="ring_s"></div>
+            <span></span>
+        </div>
+        <span id="hint_status"></span>
+    </div>
+    <style>
+        .center_s {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            /* min-height: 70vw; */
+        }
+
+        .ring_s {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            animation: ring 2s linear infinite;
+        }
+        .center {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            /* min-height: 70vw; */
+        }
+
+        .ring {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            animation: ring 2s linear infinite;
+        }
+
+        @keyframes ring {
+            0% {
+                transform: rotate(0deg);
+                box-shadow: 1px 5px 2px #e65c00;
+            }
+
+            50% {
+                transform: rotate(180deg);
+                box-shadow: 1px 5px 2px #18b201;
+            }
+
+            100% {
+                transform: rotate(360deg);
+                box-shadow: 1px 5px 2px #0456c8;
+            }
+        }
+
+        .ring:before {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255, 255, 255, .3);
+        }
+
+        span {
+            color: #737373;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 200px;
+            animation: text 3s ease-in-out infinite;
+        }
+
+        @keyframes text {
+            50% {
+                color: black;
+            }
+        }
+    </style>
+    <div class="hint_page" >
+        <div class="uploadding">
+            <div class="center">
+                <div class="ring"></div>
+                <span>上傳中...</span>
+            </div>
+        </div>
+        <style>
+            .buttons a{
+                text-decoration: none;
+                width: 80px;
+                background-color: rgb(253, 204, 43);
+                border-radius: 5px;
+                border: 1px solid black;
+                text-align: center;
+            }
+
+        </style>
+        <div class="uploaded">
+            <h1 for="">！！已上傳資料！！</h1>
+            <div class="buttons">
+                <a href='https://fooder.csiejar.xyz/'>預覽</a>
+                <a href='https://fooder.csiejar.xyz/'>回首頁</a>
+                <a href='https://fooder.csiejar.xyz/add_restaurant'>繼續新增</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>午餐吃啥?</title>
+    <script src="../static/script/jquery3.6.0.js"></script>
+    <script src="../static/script/script.js"></script>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+</head>
+
+<body>
+    <div class="header">
+        <input type="checkbox" id="menu_control">
+        <h1>今天午餐吃啥？</h1>
+        <label class="menuBtn" for="menu_control"></label>
+        <nav>
+            <a href="https://fooder.csiejar.xyz/">首頁</a>
+            <a href="https://fooder.csiejar.xyz/add_restaurant">增加餐廳清單</a>
+            <a href="">link</a>
+            <a href="">link</a>
+        </nav>
+    </div>
+    <div class="content">
+        <input type="radio" id="first_time_click">
+        <div class="show_page">
+            <h1 id="restaurant_title">抽到的餐廳標題</h1>
+            <img src="https://fakeimg.pl/250x100/" id="view_img">
+            <div class="more_information_icons">
+                <a href="#check_menu" class="item_icon"><img src="../static/img/menu.png" alt="查看菜單">菜單</a>
+                <a href="#" class="item_icon" id="restaurant_googlemap_link"><img src="../static/img/google-maps.png"
+                        alt="google map link">出發</a>
+                <a href="#prefer_dish" class="item_icon"><img src="../static/img/love.png" alt="推薦菜色">推薦</a>
+            </div>
+        </div>
+        <label class="start_btn" for="first_time_click">
+        </label>
+        <div class="information_page">
+            <hr>
+            <div class="check_menu_page">
+                <h1 id="check_menu">菜單</h1>
+                <img src="https://fakeimg.pl/250x100/" alt="菜單圖片">
+                <p id="menu_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quis nam corporis quia
+                    nihil, commodi, fugit dolore harum doloribus id quasi esse! Ipsam, quia. Deleniti cum enim fuga
+                    nostrum doloremque magni laboriosam non optio iusto quos ratione, maxime illum excepturi facilis nam
+                    ab consequatur expedita saepe similique tenetur facere natus neque. Adipisci temporibus voluptas
+                    nemo natus laboriosam modi eius excepturi nisi quis iusto error expedita architecto sapiente illum
+                    possimus ad, rerum facilis molestiae incidunt iste deserunt beatae vitae tempora quod! Ipsa quidem,
+                    asperiores id consequuntur ab dignissimos minima deserunt atque ullam! Repellat nulla error
+                    voluptatem animi exercitationem sed, esse ipsum fugit perferendis, sapiente deserunt, accusantium ex
+                    maxime doloremque facere. Dolorum voluptas commodi aut! Provident sed nihil mollitia in veritatis
+                    maiores repudiandae temporibus, cumque minima iusto odio ipsam doloribus, ab commodi quis veniam
+                    tempore eum reprehenderit blanditiis atque at. Assumenda molestiae nesciunt ratione omnis maxime
+                    consequuntur modi eius tenetur nostrum. Iure ab doloribus non optio veritatis eaque error corporis
+                    suscipit, natus dolore explicabo vitae. Nostrum impedit, placeat odit facere officiis veniam
+                    aspernatur quis? Amet, repellendus aliquid, nam facere sapiente reprehenderit dolor veniam fuga odit
+                    nesciunt voluptates aperiam qui doloremque illo quas voluptate consequatur atque velit excepturi.
+                    Deleniti exercitationem nam, libero provident necessitatibus dicta consequuntur aspernatur ipsa quo,
+                    odio odit fugiat! Repellat magnam placeat consectetur vitae fugit odio architecto hic nemo
+                    asperiores, iusto nam error doloribus totam. Ducimus, esse. Alias, eum numquam dicta atque id porro,
+                    voluptatem eveniet rem doloribus quasi corporis cum iure maxime architecto culpa perferendis odit
+                    consequatur. Quaerat, libero. Odio reiciendis nulla debitis molestiae pariatur neque tempore optio
+                    quia libero maiores a unde eligendi, aliquam officia facilis deleniti ullam fugit dolorem nostrum
+                    aliquid veritatis voluptate. Eum, laborum a exercitationem quas corrupti quis eius culpa aliquid,
+                    nemo officia impedit odit saepe. Molestiae alias assumenda obcaecati cumque quasi provident officiis
+                    explicabo.</p>
+            </div>
+            <div class="prefer_dish_page">
+                <h1 id="prefer_dish">推薦菜色</h1>
+                <img src="https://fakeimg.pl/250x100/" alt="推薦圖片">
+                <p id="prefer_dish_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas porro ratione
+                    similique quod quos, deserunt ut. Explicabo animi, accusamus beatae sequi dolores quasi doloremque
+                    perferendis neque vitae enim mollitia id ratione a iusto iste labore laborum voluptate minus
+                    consequatur tempora veritatis quam culpa aliquam eaque. Harum totam amet iure voluptatem temporibus
+                    quidem in unde et sunt doloribus consequatur obcaecati aperiam pariatur eveniet repellat minima,
+                    earum perferendis voluptatibus quas ullam ad corrupti! Libero tempore soluta labore inventore
+                    molestias. Eaque quas, a perferendis illo eos dolorem. Quasi ducimus doloremque aperiam iure impedit
+                    incidunt blanditiis possimus molestias nulla ullam quibusdam, natus recusandae beatae fugit fugiat,
+                    vitae voluptates veniam maxime dolor sit magni et eius quae. Quae optio incidunt dolor quasi?
+                    Incidunt natus nihil accusamus sit sapiente, consequatur aliquam, impedit quos aperiam, quisquam cum
+                    reiciendis quidem modi reprehenderit amet officiis optio. Veniam rerum magni inventore nihil,
+                    accusamus culpa iure natus mollitia minima consectetur enim ipsum error eius optio aut deserunt!
+                    Eveniet repellendus, cumque quia dolore sequi in odit a repudiandae praesentium harum mollitia quasi
+                    ad quas ipsam totam, id, assumenda ipsum cum fugiat. Doloremque labore rerum dignissimos nesciunt
+                    libero accusamus nobis soluta iusto eveniet deserunt, assumenda animi commodi, ab quidem, laboriosam
+                    fugit? Magni dolor non sequi quod adipisci impedit dolorem rerum ad illum. Voluptatibus ullam labore
+                    rem dolore magni voluptas temporibus molestiae cum excepturi! Voluptatem tempore necessitatibus hic
+                    odit cumque obcaecati! Quisquam eveniet recusandae ut! Dolores a quisquam nostrum perferendis
+                    adipisci laborum, eius impedit atque possimus dolore. Minus, esse recusandae eius inventore
+                    officiis, dicta consequuntur libero sit corporis molestiae voluptates aliquid nisi dignissimos,
+                    maxime laudantium delectus hic corrupti eveniet voluptate adipisci quo quos assumenda. Iusto nemo
+                    fugit quidem laudantium soluta quae voluptatibus delectus eligendi sint, cum iure, sapiente
+                    similique. Dolorem, aliquam inventore, in a doloribus atque, repellat est quidem eius vero ex
+                    distinctio exercitationem.</p>
+            </div>
+        </div>
+        <style>
+            .center {
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                min-height: calc(100vh - 120px);
+            }
+
+            .ring {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                animation: ring 2s linear infinite;
+            }
+
+            @keyframes ring {
+                0% {
+                    transform: rotate(0deg);
+                    box-shadow: 1px 5px 2px #e65c00;
+                }
+
+                50% {
+                    transform: rotate(180deg);
+                    box-shadow: 1px 5px 2px #18b201;
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                    box-shadow: 1px 5px 2px #0456c8;
+                }
+            }
+
+            .ring:before {
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                box-shadow: 0 0 5px rgba(255, 255, 255, .3);
+            }
+
+            span {
+                color: #737373;
+                font-size: 20px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                line-height: 200px;
+                animation: text 3s ease-in-out infinite;
+            }
+
+            @keyframes text {
+                50% {
+                    color: black;
+                }
+            }
+        </style>
+        <div class="loadding_page">
+            <div class="center">
+                <div class="ring"></div>
+                <span>loading...</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

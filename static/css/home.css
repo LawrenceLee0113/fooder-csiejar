@@ -1,0 +1,92 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+
+.start_btn{
+    height: 160px;
+    width: 160px;
+    background-color:#FEF143;
+    position: absolute;
+    border-radius: 20px;
+    border:solid 2px #FEA32F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 40%;
+    z-index: -10;
+}
+.show_page{
+    display: none;
+}
+.start_btn::after{
+    content: '開抽';
+}
+
+#first_time_click{
+    opacity: 0;
+    position: absolute;
+}
+#first_time_click:checked ~ .start_btn{
+    height: 80px;
+    position: static;
+    margin-top: 20px;
+}
+#first_time_click:checked ~ .start_btn::after{
+    content:"重抽";
+}
+.show_page h1{
+    text-align: center;
+}
+.show_page #view_img{
+    width: 100%;
+
+}
+.loadding_page{
+    display: none;
+}
+.show_page .more_information_icons{
+    width: 100%;
+    height: 80px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.item_icon{
+    width: 58px;
+    height: 58px;
+    /* background-color: green;
+    border:solid 1px blue; */
+    border-radius: 30px;
+    text-align: center;
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+    
+    
+
+}
+.item_icon img{
+    height: 100%;
+}
+.information_page{
+    display: none;
+    position: absolute;
+    top: 100%;
+    z-index: -10;
+    width: calc(100% - 40px);
+}
+.information_page h1{
+    text-align: center;
+
+}
+.information_page img{
+    width: 100%;
+}
