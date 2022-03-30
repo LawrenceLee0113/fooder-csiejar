@@ -1,5 +1,7 @@
 var authenticationEndpoint = "https://fooder.csiejar.xyz/uploadImage";
+var uploadData = true;
 function upload(id) {
+    
     var file = document.getElementById(id);
     var formData = new FormData();
     formData.append("file", file.files[0]);
@@ -84,6 +86,7 @@ function changeHintAnimation(status){
 }
 $(document).ready(function () {
     $("#submit").click(function (e) {//送出
+        
         $(".hint_page").show();
 
         data = {
@@ -98,23 +101,27 @@ $(document).ready(function () {
         if(data.restaurant_title == "" ||data.restaurant_img_url == "" ||data.menu_img_url == "" ||data.menu_text == "" ||data.prefer_dish_img_url == "" ||data.prefer_dish_text == "" ||data.restaurant_googlemap_link == ""){
             alert("！！輸入不可為空！！")
         }else{
-
-            $.post("https://fooder.csiejar.xyz/add", data,
-                function (data, textStatus, jqXHR) {
-                    $(".uploadding").hide();
-                    $(".uploaded").show();
-                    $(".input_area").hide();
-                    
-                    $("#restaurant_title").val("")
-                    $("#restaurant_img_url").val("")
-                    $("#menu_img_url").val("")
-                    $("#menu_text").val("")
-                    $("#prefer_dish_img_url").val("")
-                    $("#prefer_dish_text").val("")
-                    $("#restaurant_googlemap_link").val("")
-                },
-                "json"
-            );
+            if(uploadData){
+                uploadData = false;
+                $.post("https://fooder.csiejar.xyz/add", data,
+                    function (data, textStatus, jqXHR) {
+                        $(".uploadding").hide();
+                        $(".uploaded").show();
+                        $(".input_area").hide();
+                        
+                        $("#restaurant_title").val("")
+                        $("#restaurant_img_url").val("")
+                        $("#menu_img_url").val("")
+                        $("#menu_text").val("")
+                        $("#prefer_dish_img_url").val("")
+                        $("#prefer_dish_text").val("")
+                        $("#restaurant_googlemap_link").val("")
+                    },
+                    "json"
+                );
+            }else{
+                alert("你似乎已經上傳了")
+            }
         }
         
 

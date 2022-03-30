@@ -104,18 +104,23 @@
         </div>
     </div>
     <div class="loadding_page">
-        <div class="center_s">
-            <div class="ring_s"></div>
-            <span></span>
+        <div class="animation_area">
+            <div class="center_s">
+                <div class="ring_s"></div>
+                <!-- <span></span> -->
+            </div>
         </div>
         <span id="hint_status"></span>
     </div>
     <style>
+        .lo
         .center_s {
             display: flex;
             text-align: center;
             justify-content: center;
             align-items: center;
+            position: relative;
+            right: 15px;
             /* min-height: 70vw; */
         }
 
@@ -131,6 +136,8 @@
             text-align: center;
             justify-content: center;
             align-items: center;
+            /* position: relative; */
+            /* right: 10px; */
             /* min-height: 70vw; */
         }
 
@@ -178,7 +185,10 @@
             line-height: 200px;
             animation: text 3s ease-in-out infinite;
         }
-
+        .animation_area{
+            display: inline;
+            text-align: left;
+        }
         @keyframes text {
             50% {
                 color: black;
@@ -187,10 +197,10 @@
     </style>
     <div class="hint_page" >
         <div class="uploadding">
-            <div class="center">
-                <div class="ring"></div>
-                <span>上傳中...</span>
-            </div>
+                <div class="center">
+                    <div class="ring"></div>
+                </div>
+            <span>上傳中...</span>
         </div>
         <style>
             .buttons a{
