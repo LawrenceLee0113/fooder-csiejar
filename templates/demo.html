@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>午餐吃啥?</title>
+    <script src="../static/script/jquery3.6.0.js"></script>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <script>
+        var data_num = "{{get_data_num}}"
+        // alert(data_num)
+        $(document).ready(function () {
+            
+            $(".start_btn").hide();
+            $(".loadding_page").show();
+            $(".information_page").hide();
+            $(".show_page").hide();
+    
+            $.post("https://fooder.csiejar.xyz/demo_page", {data_num=data_num},
+                function (data, textStatus, jqXHR) {
+                    var restaurant_title = data.restaurant_title;
+                    var restaurant_img_url = data.restaurant_img_url;
+                    var menu_img_url = data.menu_img_url;
+                    var menu_text = data.menu_text;
+                    var prefer_dish_img_url = data.prefer_dish_img_url;
+                    var prefer_dish_text = data.prefer_dish_text;
+                    var restaurant_googlemap_link = data.restaurant_googlemap_link;
+                    var restaurant_num = data.restaurant_num;
+    
+                    var numstr = "#" + restaurant_num;
+                    $("#restaurant_title").html(restaurant_title + numstr);
+                    $("#view_img").prop("src", restaurant_img_url);
+                    $(".check_menu_page img").prop("src", menu_img_url);
+                    $("#menu_text").html(menu_text);
+                    $(".prefer_dish_page img").prop("src", prefer_dish_img_url);
+                    $("#prefer_dish_text").html(prefer_dish_text);
+                    $("#restaurant_googlemap_link").prop("href", restaurant_googlemap_link);
+    
+                    $(".loadding_page").hide();
+                    $(".show_page").show();
+                    $(".information_page").show();
+                    $(".start_btn").show();
+    
+    
+    
+                },
+                "json"
+            );
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <input type="checkbox" id="menu_control">
+        <h1>今天午餐吃啥？</h1>
+        <label class="menuBtn" for="menu_control"></label>
+        <nav>
+            <a href="https://fooder.csiejar.xyz/">首頁</a>
+            <a href="https://fooder.csiejar.xyz/add_restaurant">增加餐廳清單</a>
+            <a href="">link</a>
+            <a href="">link</a>
+        </nav>
+    </div>
+    <style>
+        #restaurant_title span {
+            display: inline;
+        }
+    </style>
+    <div class="content">
+        <input type="radio" id="first_time_click">
+        <div class="show_page">
+
+            <h1 id="restaurant_title">抽到的餐廳標題</h1>
+            <img src="https://fakeimg.pl/250x100/" id="view_img">
+            <div class="more_information_icons">
+                <a href="#check_menu" class="item_icon"><img src="../static/img/menu.png" alt="查看菜單">菜單</a>
+                <a href="#" class="item_icon" id="restaurant_googlemap_link"><img src="../static/img/google-maps.png"
+                        alt="google map link">出發</a>
+                <a href="#prefer_dish" class="item_icon"><img src="../static/img/love.png" alt="推薦菜色">推薦</a>
+            </div>
+        </div>
+        <label class="start_btn" for="first_time_click">
+        </label>
+        <div class="information_page">
+            <hr>
+            <div class="check_menu_page">
+                <h1 id="check_menu">菜單</h1>
+                <img src="https://fakeimg.pl/250x100/" alt="菜單圖片">
+                <p id="menu_text">.</p>
+            </div>
+            <div class="prefer_dish_page">
+                <h1 id="prefer_dish">推薦菜色</h1>
+                <img src="https://fakeimg.pl/250x100/" alt="推薦圖片">
+                <p id="prefer_dish_text"></p>
+            </div>
+        </div>
+        <style>
+            .center {
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                min-height: calc(100vh - 120px);
+            }
+
+            .ring {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                animation: ring 2s linear infinite;
+            }
+
+            @keyframes ring {
+                0% {
+                    transform: rotate(0deg);
+                    box-shadow: 1px 5px 2px #e65c00;
+                }
+
+                50% {
+                    transform: rotate(180deg);
+                    box-shadow: 1px 5px 2px #18b201;
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                    box-shadow: 1px 5px 2px #0456c8;
+                }
+            }
+
+            .ring:before {
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                box-shadow: 0 0 5px rgba(255, 255, 255, .3);
+            }
+
+            span {
+                color: #737373;
+                font-size: 20px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                line-height: 200px;
+                animation: text 3s ease-in-out infinite;
+            }
+
+            @keyframes text {
+                50% {
+                    color: black;
+                }
+            }
+        </style>
+        <div class="loadding_page">
+            <div class="center">
+                <div class="ring"></div>
+                <span>loading...</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
