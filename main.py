@@ -75,6 +75,9 @@ def add_data():
 @app.route('/uploadImage')
 def returnPrivateKay():
   return jsonify(reflashImagekitKey())
+@app.route("/login")
+def login():
+  return render_template("login.html")
 @app.route("/target_page",methods=['GET'])
 def target_page():
   target_num = int(request.args.get("target_num"))
@@ -82,22 +85,13 @@ def target_page():
     data = json.load(file)
   ouput_data = data["restaurant_list"][target_num]
 
-  return render_template("target_page",
-restaurant_title = output_data[restaurant_title],
-restaurant_img_url = output_data[restaurant_img_url],
-menu_img_url = output_data[menu_img_url],
-menu_text = output_data[menu_text],
-prefer_dish_img_url = output_data[prefer_dish_img_url],
-prefer_dish_text = output_data[prefer_dish_text],
-restaurant_googlemap_link = output_data[restaurant_googlemap_link],
-restaurant_num = output_data[restaurant_num]
-)
+  return render_template("target_page",restaurant_title = output_data[restaurant_title],restaurant_img_url = output_data[restaurant_img_url],menu_img_url = output_data[menu_img_url],menu_text = output_data[menu_text],prefer_dish_img_url = output_data[prefer_dish_img_url],prefer_dish_text = output_data[prefer_dish_text],restaurant_googlemap_link = output_data[restaurant_googlemap_link],restaurant_num = output_data[restaurant_num])
 
 @app.route("/get_restaurant_amount")
 def get_restaurant_amount():
   with open("static/data/restaurant.json") as file:
     data = json.load(file)
-  return jsonify("restaurant_amount":data["restaurant_amount"])
+  return jsonify({"restaurant_amount":data["restaurant_amount"]})
 #run server
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)

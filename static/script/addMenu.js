@@ -67,18 +67,18 @@ function changeHintAnimation(status){
     switch(status){
         case 1:{//finish
             $(".loadding_page").css("display","flex");
-            $("#hint_status").html("√完成√");
+            $("#hint_status").html("完成");
             setTimeout(hide,2000);
             break;
         }
         case 2:{//get private key
             $(".loadding_page").css("display","flex");
-            $("#hint_status").html("載入中30%");
+            $("#hint_status").html("上傳中30%");
             break;
         }
         case 3:{//get url success
             $(".loadding_page").css("display","flex");
-            $("#hint_status").html("載入中70%");
+            $("#hint_status").html("上傳中70%");
             break;
         }
         
@@ -87,7 +87,7 @@ function changeHintAnimation(status){
 $(document).ready(function () {
     $("#submit").click(function (e) {//送出
         
-        $(".hint_page").show();
+        
 
         data = {
             restaurant_title: $("#restaurant_title").val(),
@@ -105,6 +105,7 @@ $(document).ready(function () {
                 uploadData = false;
                 $.post("https://fooder.csiejar.xyz/add", data,
                     function (data, textStatus, jqXHR) {
+                        $(".hint_page").show();
                         $(".uploadding").hide();
                         $(".uploaded").show();
                         $(".input_area").hide();
