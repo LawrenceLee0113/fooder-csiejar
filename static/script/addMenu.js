@@ -103,7 +103,7 @@ $(document).ready(function () {
         }else{
             if(uploadData){
                 uploadData = false;
-                $.post("https://fooder.csiejar.xyz/add", data,
+                $.post("https://fooder.csiejar.xyz/edit_data", data,
                     function (data, textStatus, jqXHR) {
                         $(".hint_page").show();
                         $(".uploadding").hide();
