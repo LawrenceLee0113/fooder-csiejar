@@ -52,7 +52,7 @@
         }
         .view iframe{
             width: 100%;
-            height: 100%;
+            height: calc(100% - 30px);
             
         }
         /* .accept_checkbox:checked ~ .accept_lab{
@@ -64,14 +64,22 @@
             $.get("https://fooder.csiejar.xyz/get_restaurant_amount", {},
                 function (data, textStatus, jqXHR) {
                     var data_amount = data.restaurant_amount;
-                    
+
+                    for(var i = 0;i < data_amount;i++){
+
+                        var data_item_html = $(".data_item").first().clone();
+                        $(data_item_html).children(".view").children("iframe").prop("src","https://fooder.csiejar.xyz/demo_page?data_num="+i)
+                        $(data_item_html).show();
+    
+                        $(".edit_page").append(data_item_html);
+                    }
                 },
                 "json"
             );
         });
     </script>
     <div class="edit_page">
-        <div class="data_item">
+        <div class="data_item" style="display: none;">
             <div class="setting">
                 <label class="accept_lab">核准:</label><input type="checkbox" class="accept_checkbox">
             </div>
