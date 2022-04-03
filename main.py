@@ -85,6 +85,7 @@ def target_page():
     output = request.args.get("data_num")
     return render_template("demo.html",get_data_num=output)
   elif request.method == "POST":
+    print("asedfasdf")
     data_num = request.form.get("data_num")
     with open("static/data/restaurant.json") as f:
       data = json.load(f)

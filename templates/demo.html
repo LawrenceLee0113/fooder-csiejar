@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../static/css/header.css">
     <script>
         var data_num = "{{get_data_num}}"
-        // alert(data_num)
         $(document).ready(function () {
             
             $(".start_btn").hide();
@@ -18,7 +17,7 @@
             $(".information_page").hide();
             $(".show_page").hide();
     
-            $.post("https://fooder.csiejar.xyz/demo_page", {data_num=data_num},
+            $.post("https://fooder.csiejar.xyz/demo_page", {"data_num":data_num},
                 function (data, textStatus, jqXHR) {
                     var restaurant_title = data.restaurant_title;
                     var restaurant_img_url = data.restaurant_img_url;
