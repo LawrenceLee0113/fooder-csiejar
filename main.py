@@ -42,8 +42,10 @@ def check_accepted_list():
   data = read_restaurant_data()
   data["restaurant_names_accepted"].clear()
   for i in data["restaurant_list"]:
-    if i["accept"] == "true":
-      data["restaurant_names_accepted"] = i["id"]
+    if data["restaurant_list"][i]["accept"] == "true":
+      print(i)
+      data["restaurant_names_accepted"].append(i)
+  write_restaurant_data(data)
 
 
 
