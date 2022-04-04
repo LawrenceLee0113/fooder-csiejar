@@ -139,12 +139,16 @@ def target_page():  # get demo html and demo data
     output = request.args.get("data_num")
     return render_template("demo.html", get_data_num=output)
   elif request.method == "POST":
-    print("asedfasdf")
     data_num = request.form.get("data_num")
 
-    data = read_restaurant_data()
-    output = data["restaurant_list"][data_num]
-    return jsonify(output)
+    try:
+      data = read_restaurant_data()
+      output = data["restaurant_list"][data_num]
+      output["status"] = "true"
+      return jsonify(output)
+    except Exception:
+      return jsonify({"status":"false"})
+
 
 
 @app.route("/get_restaurant_amount")
