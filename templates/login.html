@@ -56,7 +56,7 @@
                     for (var i = 0; i < data_amount; i++) {
 
                         var data_item_html = $(".data_item").first().clone();
-                        $(data_item_html).children("iframe").prop("src", "https://fooder.csiejar.xyz/demo_page?data_num=" + i)
+                        $(data_item_html).children("iframe").prop("src", "https://fooder.csiejar.xyz/demo_page?data_num=" + data.restaurant_names[i])
                         $(data_item_html).show();
 
                         $(".edit_page").append(data_item_html);

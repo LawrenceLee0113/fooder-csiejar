@@ -50,7 +50,8 @@ def random_restaurant():  # get random data
   data = read_restaurant_data()
   restaurant_amount = data["restaurant_amount"]
   random_index = random.randint(0, restaurant_amount-1)
-  output_data = data["restaurant_list"][random_index]
+  random_name = data["restaurant_names"][random_index]
+  output_data = data["restaurant_list"][random_name]
 
   return jsonify(output_data)
 
@@ -66,8 +67,9 @@ def add_data():  # add restaurant data
 
     data = read_restaurant_data()
     num = data["restaurant_amount"]
+    uuidstr = uuid.uuid4()
     data["restaurant_list"].append(
-        {
+        uuidstr:{
             "content": {
                 "restaurant_num": "0"*(3-(len(str(num+1))))+str(num+1),
                 "restaurant_title": request.form["restaurant_title"],
@@ -78,6 +80,7 @@ def add_data():  # add restaurant data
                 "prefer_dish_text": request.form["prefer_dish_text"],
                 "restaurant_googlemap_link": request.form["restaurant_googlemap_link"],
             },
+            "id":uuidstr,
             "creat_time": time.ctime(time.time()+28800),
             "accept": "false",
             "creator": ""
@@ -97,8 +100,8 @@ def add_data():  # add restaurant data
       data = read_restaurant_data()
       change_data = request.form.get("accept")
       # print(type(change_data))
-      data["restaurant_list"][int(data_num)]["accept"] = change_data
-      # print(data["restaurant_list"][int(data_num)])
+      data["restaurant_list"][data_num]["accept"] = change_data
+      # print(data["restaurant_list"][data_num])
       write_restaurant_data(data)
       return jsonify({"messenge": "change header success"})
 
@@ -107,7 +110,7 @@ def add_data():  # add restaurant data
   elif request.method == "DELETE":
     data_num = request.form.get("data_num")
     data = read_restaurant_data()
-    del data["restaurant_list"][int(data_num)]
+    del data["restaurant_list"][data_num]
     # print(data_num)
     write_restaurant_data(data)
     return jsonify({"messenge": "del success"})
@@ -115,7 +118,7 @@ def add_data():  # add restaurant data
     data_num = request.form.get("data_num")
 
     data = read_restaurant_data()
-    output = data["restaurant_list"][int(data_num)]
+    output = data["restaurant_list"][data_num]
     return jsonify(output)
 
 
@@ -139,14 +142,14 @@ def target_page():  # get demo html and demo data
     data_num = request.form.get("data_num")
 
     data = read_restaurant_data()
-    output = data["restaurant_list"][int(data_num)]
+    output = data["restaurant_list"][data_num]
     return jsonify(output)
 
 
 @app.route("/get_restaurant_amount")
 def get_restaurant_amount():  # get restaurant data
   data = read_restaurant_data()
-  return jsonify({"restaurant_amount": data["restaurant_amount"]})
+  return jsonify({"restaurant_amount": data["restaurant_amount","restaurant_names": data["restaurant_names"]})
 
 
 #run server
