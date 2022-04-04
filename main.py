@@ -68,8 +68,7 @@ def add_data():  # add restaurant data
     data = read_restaurant_data()
     num = data["restaurant_amount"]
     uuidstr = uuid.uuid4()
-    data["restaurant_list"].append(
-        uuidstr:{
+    data["restaurant_list"][uuidstr]={
             "content": {
                 "restaurant_num": "0"*(3-(len(str(num+1))))+str(num+1),
                 "restaurant_title": request.form["restaurant_title"],
@@ -86,7 +85,9 @@ def add_data():  # add restaurant data
             "creator": ""
 
         }
-    )
+
+        
+    
     data["restaurant_amount"] += 1
     write_restaurant_data(data)
     return jsonify({"messenge": "up load success"})
@@ -149,7 +150,7 @@ def target_page():  # get demo html and demo data
 @app.route("/get_restaurant_amount")
 def get_restaurant_amount():  # get restaurant data
   data = read_restaurant_data()
-  return jsonify({"restaurant_amount": data["restaurant_amount","restaurant_names": data["restaurant_names"]})
+  return jsonify({"restaurant_amount": data["restaurant_amount"],"restaurant_names": data["restaurant_names"]})
 
 
 #run server
