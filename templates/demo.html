@@ -44,8 +44,8 @@
                     
                     //setting format
 
-                    var header = data.header
-                    $(".accept_checkbox").prop("checked",header.accept)
+                      console.log(data.accept)
+                    $(".accept_checkbox").prop("checked",data.accept=="true")
                     
     
     
@@ -63,6 +63,7 @@
             justify-content: space-between;
             font-size: 20px;
             position: fixed;
+            background-color: #dddddd;;
 
         }
         .view{
@@ -71,6 +72,8 @@
         }
     </style>
     <script>
+      $(document).ready(function () {
+        
         $(".save_button").click(function (e) { 
             var del_checkbox = $(this).parents(".setting").find(".del_checkbox").prop("checked")
             if (del_checkbox) {
@@ -82,6 +85,7 @@
                         dataType: "json",
                         success: function (response) {
                             alert(response.messenge)
+                          location.reload()
                         }
                     });
                 }
@@ -95,11 +99,13 @@
                     dataType: "json",
                     success: function (response) {
                         alert(response.messenge)
+                        location.reload()
                     }
                 });
 
             }
         });
+    });
     </script>
 </head>
 
