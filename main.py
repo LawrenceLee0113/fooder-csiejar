@@ -60,7 +60,7 @@ def edit_page():  # edit page html
   return render_template("edit.html")
 
 
-@app.route('/edit_data', methods=["GET","POST","PUT","DELETE"])
+@app.route('/edit_data', methods=["GET", "POST", "PUT", "DELETE"])
 def add_data():  # add restaurant data
   if request.method == "POST":
 
@@ -68,19 +68,19 @@ def add_data():  # add restaurant data
     num = data["restaurant_amount"]
     data["restaurant_list"].append(
         {
-            "restaurant_num": "0"*(3-(len(str(num+1))))+str(num+1),
-            "restaurant_title": request.form["restaurant_title"],
-            "restaurant_img_url": request.form["restaurant_img_url"],
-            "menu_img_url": request.form["menu_img_url"],
-            "menu_text": request.form["menu_text"],
-            "prefer_dish_img_url": request.form["prefer_dish_img_url"],
-            "prefer_dish_text": request.form["prefer_dish_text"],
-            "restaurant_googlemap_link": request.form["restaurant_googlemap_link"],
-            "header": {
-                "creat_time": time.ctime(time.time()+28800),
-                "accept": False,
-                "creator": ""
-            }
+            "content": {
+                "restaurant_num": "0"*(3-(len(str(num+1))))+str(num+1),
+                "restaurant_title": request.form["restaurant_title"],
+                "restaurant_img_url": request.form["restaurant_img_url"],
+                "menu_img_url": request.form["menu_img_url"],
+                "menu_text": request.form["menu_text"],
+                "prefer_dish_img_url": request.form["prefer_dish_img_url"],
+                "prefer_dish_text": request.form["prefer_dish_text"],
+                "restaurant_googlemap_link": request.form["restaurant_googlemap_link"],
+            },
+            "creat_time": time.ctime(time.time()+28800),
+            "accept": "false",
+            "creator": ""
 
         }
     )
@@ -97,13 +97,11 @@ def add_data():  # add restaurant data
       data = read_restaurant_data()
       change_data = request.form.get("change_data")
       # print(type(change_data))
-      data["restaurant_list"][int(data_num)]["header"]["accept"] = change_data
+      data["restaurant_list"][int(data_num)]["accept"] = change_data
       # print(data["restaurant_list"][int(data_num)])
       write_restaurant_data(data)
-      return jsonify({"messenge":"change header success"})
-      
+      return jsonify({"messenge": "change header success"})
 
-      
     else:
       print("no type")
   elif request.method == "DELETE":
@@ -112,14 +110,13 @@ def add_data():  # add restaurant data
     del data["restaurant_list"][int(data_num)]
     # print(data_num)
     write_restaurant_data(data)
-    return jsonify({"messenge":"del success"})
+    return jsonify({"messenge": "del success"})
   elif request.method == "GET":
     data_num = request.form.get("data_num")
 
     data = read_restaurant_data()
     output = data["restaurant_list"][int(data_num)]
     return jsonify(output)
-    
 
 
 @app.route('/uploadImage')

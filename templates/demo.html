@@ -19,14 +19,14 @@
     
             $.post("https://fooder.csiejar.xyz/demo_page", {"data_num":data_num},
                 function (data, textStatus, jqXHR) {
-                    var restaurant_title = data.restaurant_title;
-                    var restaurant_img_url = data.restaurant_img_url;
-                    var menu_img_url = data.menu_img_url;
-                    var menu_text = data.menu_text;
-                    var prefer_dish_img_url = data.prefer_dish_img_url;
-                    var prefer_dish_text = data.prefer_dish_text;
-                    var restaurant_googlemap_link = data.restaurant_googlemap_link;
-                    var restaurant_num = data.restaurant_num;
+                    var restaurant_title = data.content.restaurant_title;
+                    var restaurant_img_url = data.content.restaurant_img_url;
+                    var menu_img_url = data.content.menu_img_url;
+                    var menu_text = data.content.menu_text;
+                    var prefer_dish_img_url = data.content.prefer_dish_img_url;
+                    var prefer_dish_text = data.content.prefer_dish_text;
+                    var restaurant_googlemap_link = data.content.restaurant_googlemap_link;
+                    var restaurant_num = data.content.restaurant_num;
     
                     var numstr = "#" + restaurant_num;
                     $("#restaurant_title").html(restaurant_title + numstr);
