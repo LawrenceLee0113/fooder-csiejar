@@ -96,10 +96,10 @@ def add_data():  # add restaurant data
       print("header")
       data = read_restaurant_data()
       change_data = request.form.get("change_data")
-      for i in change_data:
-        data["restaurant_list"][int(data_num)]["header"][i] = change_data[i]
-      print(data)
-      # write_restaurant_data(data)
+      # print(type(change_data))
+      data["restaurant_list"][int(data_num)]["header"]["accept"] = change_data
+      # print(data["restaurant_list"][int(data_num)])
+      write_restaurant_data(data)
       return jsonify({"messenge":"change header success"})
       
 
@@ -109,8 +109,9 @@ def add_data():  # add restaurant data
   elif request.method == "DELETE":
     data_num = request.form.get("data_num")
     data = read_restaurant_data()
-    # del data["restaurant_list"][int(data_num)]
-    print("del su")
+    del data["restaurant_list"][int(data_num)]
+    # print(data_num)
+    write_restaurant_data(data)
     return jsonify({"messenge":"del success"})
   elif request.method == "GET":
     data_num = request.form.get("data_num")
