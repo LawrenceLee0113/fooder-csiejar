@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="../static/css/header.css">
 
 </head>
+
 <body>
     <div class="header">
         <input type="checkbox" id="menu_control">
@@ -22,7 +24,7 @@
         </nav>
     </div>
     <style>
-        .edit_page{
+        .edit_page {
             background-color: #aaa;
             padding: 20px;
 
@@ -34,116 +36,37 @@
             flex-wrap: wrap;
             justify-content: space-between;
         }
-        .data_item{
-            width: 300px;
-            height: 500px;
-            margin: 10px;
-            background-color: #ddd;
-        }
-        .setting{
-            width: 100%;
-            height: 30px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 20px;
-
-        }
-        .view{
-            width: 100%;
-            height: calc(100% - 30px);
-        }
-        .view iframe{
-            width: 100%;
+        .edit_page iframe{
             height: 100%;
-            
+            width: 100%;
         }
-        /* .accept_checkbox:checked ~ .accept_lab{
-            color:blue;
-        } */
     </style>
     <script>
-      function save_button(){
-        // alert("aaaaa")
-                var del_checkbox = $(this).parents(".setting").find(".del_checkbox").prop("checked")
-                var _now_setting = $(this).parents(".data_item")
-                var _now_index = $(".edit_page .data_item").index(_now_setting)
-                var data_num = _now_index - 1;
-                // alert(data_num)
-                if(del_checkbox){
-                    if(confirm("是否刪掉!!?")){
-                        
-                        // alert("del")
-                        $.ajax({
-                            type: "DELETE",
-                            url: "https://fooder.csiejar.xyz/edit_data",
-                            data: {"data_num":data_num},
-                            dataType: "json",
-                            success: function (response) {
-                                alert(response.messenge)
-                            }
-                        });
-                    }
-                }else{
-                    var accept_checkbox = $(this).parents(".setting").find(".accept_checkbox").prop("checked")
-                    var change_data = accept_checkbox;
-                    
-                    $.ajax({
-                        type: "PUT",
-                        url: "https://fooder.csiejar.xyz/edit_data",
-                        data: {"data_num":data_num,"put_data_mode":"header","change_data":change_data},
-                        dataType: "json",
-                        success: function (response) {
-                            alert(response.messenge)
-                        }
-                    });
-
-                }
-      }
         $(document).ready(function () {
             $.get("https://fooder.csiejar.xyz/get_restaurant_amount", {},
                 function (data, textStatus, jqXHR) {
                     var data_amount = data.restaurant_amount;
 
-                    for(var i = 0;i < data_amount;i++){
+                    for (var i = 0; i < data_amount; i++) {
 
                         var data_item_html = $(".data_item").first().clone();
-                        $(data_item_html).children(".view").children("iframe").prop("src","https://fooder.csiejar.xyz/demo_page?data_num="+i)
+                        $(data_item_html).children("iframe").prop("src", "https://fooder.csiejar.xyz/demo_page?data_num=" + i)
                         $(data_item_html).show();
-    
+
                         $(".edit_page").append(data_item_html);
                     }
-                    $(".save_button").on("click",save_button)
                 },
                 "json"
             );
-          
-          // $(".save_button").click(function (e) {
-              
-                
-          //   });
         });
     </script>
     <div class="edit_page">
         <div class="data_item" style="display: none;">
-<!--         <div class="data_item"> -->
-            <div class="setting">
-                <div class="ui_item">
-                    <label class="accept_lab">核准</label><input type="checkbox" class="accept_checkbox">
-                </div>
-                <div class="ui_item">
-                    <label class="accept_lab">刪除</label><input type="checkbox" class="del_checkbox">
-                </div>
-                <div class="ui_item">
-                    <label class="accept_lab">儲存</label><button class = "save_button">!確認儲存!</button>
-                </div>
-
-            </div>
-            <div class="view">
-                <iframe src="https://fooder.csiejar.xyz" frameborder="0"></iframe>
-            </div>
+            <iframe src="https://fooder.csiejar.xyz" frameborder="0"></iframe>
         </div>
-        
-        
+
+
     </div>
 </body>
+
 </html>

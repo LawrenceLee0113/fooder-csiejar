@@ -95,7 +95,7 @@ def add_data():  # add restaurant data
     elif put_data_mode == "header":
       print("header")
       data = read_restaurant_data()
-      change_data = request.form.get("change_data")
+      change_data = request.form.get("accept")
       # print(type(change_data))
       data["restaurant_list"][int(data_num)]["accept"] = change_data
       # print(data["restaurant_list"][int(data_num)])
