@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, json, jsonify
-import random
+import random,uuid
 import time
 
 import base64  # imgkit
@@ -87,7 +87,7 @@ def add_data():  # add restaurant data
 
     data = read_restaurant_data()
     num = data["restaurant_amount"]
-    uuidstr = uuid.uuid4()
+    uuidstr = str(uuid.uuid4())
     data["restaurant_list"][uuidstr]={
             "content": {
                 "restaurant_num": "0"*(3-(len(str(num+1))))+str(num+1),
@@ -109,6 +109,8 @@ def add_data():  # add restaurant data
         
     
     data["restaurant_amount"] += 1
+    
+    print(data)
     write_restaurant_data(data)
     return jsonify({"messenge": "up load success"})
   elif request.method == "PUT":
