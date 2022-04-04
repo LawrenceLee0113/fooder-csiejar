@@ -58,11 +58,20 @@ def index_page():  # home page html
 
 @app.route('/random', methods=["POST"])
 def random_restaurant():  # get random data
+  accept_checkbox = request.form.get("accept_checkbox")
+  
   data = read_restaurant_data()
-  restaurant_amount = data["restaurant_amount"]
-  random_index = random.randint(0, restaurant_amount-1)
-  random_name = data["restaurant_names"][random_index]
-  output_data = data["restaurant_list"][random_name]
+  
+  if accept_checkbox == "true":
+    restaurant_amount = len(data["restaurant_names_accepted"])
+    random_index = random.randint(0, restaurant_amount-1)
+    random_name = data["restaurant_names_accepted"][random_index]
+    output_data = data["restaurant_list"][random_name]
+  elif accept_checkbox == "false":
+    restaurant_amount = len(data["restaurant_names"])
+    random_index = random.randint(0, restaurant_amount-1)
+    random_name = data["restaurant_names"][random_index]
+    output_data = data["restaurant_list"][random_name]
 
   return jsonify(output_data)
 

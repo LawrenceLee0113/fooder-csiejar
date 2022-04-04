@@ -4,8 +4,10 @@ $(document).ready(function () {
         $(".loadding_page").show();
         $(".information_page").hide();
         $(".show_page").hide();
-        
-        $.post("https://fooder.csiejar.xyz/random", {},
+
+        var accept_checkbox = $("#accept_checkbox").prop("checked");
+
+        $.post("https://fooder.csiejar.xyz/random", {"accept_checkbox":accept_checkbox},
             function (data, textStatus, jqXHR) {
                 var restaurant_title = data.content.restaurant_title;
                 var restaurant_img_url = data.content.restaurant_img_url;
@@ -16,8 +18,8 @@ $(document).ready(function () {
                 var restaurant_googlemap_link = data.content.restaurant_googlemap_link;
                 var restaurant_num = data.content.restaurant_num;
                 
-               var numstr="#"+restaurant_num;
-                 $("#restaurant_title").html(restaurant_title+numstr);
+                var numstr="#"+restaurant_num;
+                $("#restaurant_title").html(restaurant_title+numstr);
                 $("#view_img").prop("src",restaurant_img_url);
                 $(".check_menu_page img").prop("src",menu_img_url);
                 $("#menu_text").html(menu_text);

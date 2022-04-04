@@ -12,6 +12,19 @@
 </head>
 
 <body>
+    <style>
+        .accept_selector{
+            display: block;
+            text-align: right;
+            position: absolute;
+            right: 10px;
+            margin-top: 10px;
+        }
+        .accept_selector input{
+            /* visibility: hidden; */
+            background-color: #222;
+        }
+    </style>
     <div class="header">
         <input type="checkbox" id="menu_control">
         <h1>今天午餐吃啥？</h1>
@@ -21,6 +34,10 @@
             <a href="https://fooder.csiejar.xyz/add_restaurant">增加餐廳清單</a>
             <a href="https://fooder.csiejar.xyz/login">管理核准後台</a>
             <a href="">link</a>
+            <div class="accept_selector">
+                <label for="accept_checkbox">審核餐廳資料：</label>
+                <input type="checkbox" id="accept_checkbox" checked>
+            </div>
         </nav>
     </div>
   <style>
