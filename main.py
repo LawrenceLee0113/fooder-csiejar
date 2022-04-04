@@ -38,10 +38,19 @@ def check_restaurant_amount():  # reload restaurant amount
   data["restaurant_amount"] = amount
   write_restaurant_data(data)
 
+def check_accepted_list():
+  data = read_restaurant_data()
+  data["restaurant_names_accepted"].clear()
+  for i in data["restaurant_list"]:
+    if i["accept"] == "true":
+      data["restaurant_names_accepted"] = i["id"]
+
+
 
 @app.route('/')
 def index_page():  # home page html
   check_restaurant_amount()
+  check_accepted_list()
   return render_template("home.html")
 
 
@@ -112,6 +121,7 @@ def add_data():  # add restaurant data
     data_num = request.form.get("data_num")
     data = read_restaurant_data()
     del data["restaurant_list"][data_num]
+    data["restaurant_names"].remove(data_num)
     # print(data_num)
     write_restaurant_data(data)
     return jsonify({"messenge": "del success"})
