@@ -119,7 +119,7 @@ $(document).ready(function () {
                         $("#restaurant_googlemap_link").val("")
 
                         var data_num = data.data_num
-                        $("#view_data_num").prop("href",data_num)
+                        $("#view_data_num").prop("href","https://fooder.csiejar.xyz/demo_page?data_num="+data_num)
                     },
                     "json"
                 );
