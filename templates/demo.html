@@ -82,35 +82,42 @@
       $(document).ready(function () {
         
         $(".save_button").click(function (e) { 
-            var del_checkbox = $(this).parents(".setting").find(".del_checkbox").prop("checked")
-            if (del_checkbox) {
-                if (confirm("是否刪掉!!?")) {
+            var password = prompt("請輸入您的密碼")
+            if(password != null){
+
+                var del_checkbox = $(this).parents(".setting").find(".del_checkbox").prop("checked")
+                if (del_checkbox) {
+                    if (confirm("是否刪掉!!?")) {
+                        $.ajax({
+                            type: "DELETE",
+                            url: "https://fooder.csiejar.xyz/edit_data",
+                            data: { "data_num": data_num,"password":password},
+                            dataType: "json",
+                            success: function (response) {
+                                alert(response.messenge)
+                              location.reload()
+                            }
+                        });
+                    }
+                } else {
+                    var accept_checkbox = $(this).parents(".setting").find(".accept_checkbox").prop("checked")
+    
                     $.ajax({
-                        type: "DELETE",
+                        type: "PUT",
                         url: "https://fooder.csiejar.xyz/edit_data",
-                        data: { "data_num": data_num },
+                        data: { "data_num": data_num, "put_data_mode": "header", "accept": accept_checkbox,"passcode":passcode},
                         dataType: "json",
                         success: function (response) {
                             alert(response.messenge)
-                          location.reload()
+                            location.reload()
                         }
                     });
+    
                 }
-            } else {
-                var accept_checkbox = $(this).parents(".setting").find(".accept_checkbox").prop("checked")
-
-                $.ajax({
-                    type: "PUT",
-                    url: "https://fooder.csiejar.xyz/edit_data",
-                    data: { "data_num": data_num, "put_data_mode": "header", "accept": accept_checkbox},
-                    dataType: "json",
-                    success: function (response) {
-                        alert(response.messenge)
-                        location.reload()
-                    }
-                });
-
+            }else{
+                alert("do nothing")
             }
+            
         });
     });
     </script>

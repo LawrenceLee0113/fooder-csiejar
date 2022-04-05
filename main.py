@@ -9,6 +9,13 @@ from imagekitio import ImageKit  # imgkit
 
 app = Flask(__name__)
 
+def check_login_password(pw):
+  with open("static/data/login_data.json") as file:
+    data = json.load(file)
+  if pw == data["password"]:
+    return True
+  else:
+    return False
 
 def read_restaurant_data():
   with open("static/data/restaurant.json") as file:
@@ -74,15 +81,13 @@ def random_restaurant():  # get random data
 
   return jsonify(output_data)
 
-
 @app.route('/add_restaurant', methods=["GET"])
 def edit_page():  # edit page html
   return render_template("edit.html")
 
-
 @app.route('/edit_data', methods=["GET", "POST", "PUT", "DELETE"])
-def add_data():  # add restaurant data
-  if request.method == "POST":
+def add_data():
+  if request.method == "POST":# add restaurant data
 
     data = read_restaurant_data()
     num = data["restaurant_amount"]
@@ -112,33 +117,39 @@ def add_data():  # add restaurant data
     print(data)
     write_restaurant_data(data)
     return jsonify({"messenge": "up load success","data_num":uuidstr})
-  elif request.method == "PUT":
-    put_data_mode = request.form.get("put_data_mode")
-    data_num = request.form.get("data_num")
-    if put_data_mode == "content":
-      print("edit content")
-    elif put_data_mode == "header":
-      print("header")
-      data = read_restaurant_data()
-      change_data = request.form.get("accept")
-      # print(type(change_data))
-      data["restaurant_list"][data_num]["accept"] = change_data
-      # print(data["restaurant_list"][data_num])
-      write_restaurant_data(data)
-      check_accepted_list()
+  elif request.method == "PUT":# change accept status
+    if check_login_password(request.form.get("password")):
+      put_data_mode = request.form.get("put_data_mode")
+      data_num = request.form.get("data_num")
+      if put_data_mode == "content":
+        print("edit content")
+      elif put_data_mode == "header":
+        print("header")
+        data = read_restaurant_data()
+        change_data = request.form.get("accept")
+        # print(type(change_data))
+        data["restaurant_list"][data_num]["accept"] = change_data
+        # print(data["restaurant_list"][data_num])
+        write_restaurant_data(data)
+        check_accepted_list()
 
-      return jsonify({"messenge": "change header success"})
+        return jsonify({"messenge": "change header success"})
 
+      else:
+        print("no type")
     else:
-      print("no type")
-  elif request.method == "DELETE":
-    data_num = request.form.get("data_num")
-    data = read_restaurant_data()
-    del data["restaurant_list"][data_num]
-    data["restaurant_names"].remove(data_num)
-    # print(data_num)
-    write_restaurant_data(data)
-    return jsonify({"messenge": "del success"})
+      return jsonify({"messenge": "密碼錯誤"})
+  elif request.method == "DELETE":# delete restaurant data
+    if check_login_password(request.form.get("password")):
+      data_num = request.form.get("data_num")
+      data = read_restaurant_data()
+      del data["restaurant_list"][data_num]
+      data["restaurant_names"].remove(data_num)
+      # print(data_num)
+      write_restaurant_data(data)
+      return jsonify({"messenge": "del success"})
+    else:
+      return jsonify({"messenge": "密碼錯誤"})
   elif request.method == "GET":
     data_num = request.form.get("data_num")
 
@@ -179,6 +190,9 @@ def target_page():  # get demo html and demo data
 def get_restaurant_amount():  # get restaurant data
   data = read_restaurant_data()
   return jsonify({"restaurant_amount": data["restaurant_amount"],"restaurant_names": data["restaurant_names"]})
+
+
+
 
 
 #run server
