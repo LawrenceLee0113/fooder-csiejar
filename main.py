@@ -52,7 +52,6 @@ def check_accepted_list():
 @app.route('/')
 def index_page():  # home page html
   check_restaurant_amount()
-  check_accepted_list()
   return render_template("home.html")
 
 
@@ -103,16 +102,16 @@ def add_data():  # add restaurant data
             "creat_time": time.ctime(time.time()+28800),
             "accept": "false",
             "creator": ""
-
         }
 
         
     
     data["restaurant_amount"] += 1
+    data["restaurant_names"].append(uuidstr)
     
     print(data)
     write_restaurant_data(data)
-    return jsonify({"messenge": "up load success"})
+    return jsonify({"messenge": "up load success","data_num":uuidstr})
   elif request.method == "PUT":
     put_data_mode = request.form.get("put_data_mode")
     data_num = request.form.get("data_num")
@@ -126,6 +125,8 @@ def add_data():  # add restaurant data
       data["restaurant_list"][data_num]["accept"] = change_data
       # print(data["restaurant_list"][data_num])
       write_restaurant_data(data)
+      check_accepted_list()
+
       return jsonify({"messenge": "change header success"})
 
     else:

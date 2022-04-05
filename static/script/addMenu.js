@@ -117,6 +117,9 @@ $(document).ready(function () {
                         $("#prefer_dish_img_url").val("")
                         $("#prefer_dish_text").val("")
                         $("#restaurant_googlemap_link").val("")
+
+                        var data_num = data.data_num
+                        $("#view_data_num").prop("href",data_num)
                     },
                     "json"
                 );

@@ -1,1 +1,96 @@
-{"restaurant_amount": 5, "restaurant_list": {"2e4e96bf-26c1-48a8-ba72-fb2e6b33eb03": {"accept": "false", "content": {"menu_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_D57fu3I_Z.jpg", "menu_text": "asdfasdf", "prefer_dish_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_5tYnAIIZP.jpg", "prefer_dish_text": "asdfasdf", "restaurant_googlemap_link": "asdfasdf", "restaurant_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_V-yAwITJW.jpg", "restaurant_num": "005", "restaurant_title": "adsfadsf"}, "creat_time": "Mon Apr  4 19:20:27 2022", "creator": "", "id": "2e4e96bf-26c1-48a8-ba72-fb2e6b33eb03"}, "3fc2bf3a-6307-4233-8557-20f7a38e3d2a": {"accept": "true", "content": {"menu_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_y4vRXRda3.jpg", "menu_text": "\u8272\u8272", "prefer_dish_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_9s0wnYlEu.jpg", "prefer_dish_text": "2006\u5e74", "restaurant_googlemap_link": "http://www.cmoney.tw/vt/game/6698/", "restaurant_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_5dRJnCI4P.jpg", "restaurant_num": "004", "restaurant_title": "\u4f86\u4f86\u98ef\u9928"}, "creat_time": "none", "creator": "", "id": "3fc2bf3a-6307-4233-8557-20f7a38e3d2a"}, "5e831d9d-0875-4c7b-8c4f-918be171de5f": {"accept": "false", "content": {"menu_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_p0Iamoe2t.jpg", "menu_text": "Hey", "prefer_dish_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_M3NDI5FMJ.jpg", "prefer_dish_text": "Hey", "restaurant_googlemap_link": "Eey", "restaurant_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_wquXSiGed.jpg", "restaurant_num": "003", "restaurant_title": "Vcv"}, "creat_time": "none", "creator": "", "id": "5e831d9d-0875-4c7b-8c4f-918be171de5f"}, "b1e3c37f-8ca6-4c61-b7c8-0f6e020aea83": {"accept": "false", "content": {"menu_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_tJEHpnR3H.jpg", "menu_text": "\u597d\u5403", "prefer_dish_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_Y_fwLfLek.jpg", "prefer_dish_text": "\u4e3b\u98df\u90a3\u56db\u500b\u90fd\u63a8\u85a6", "restaurant_googlemap_link": "https://goo.gl/maps/gFCETntT8W1UBm467", "restaurant_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_6lsusuxq0.jpg", "restaurant_num": "002", "restaurant_title": "\u85cd\u7378\u4e93\u95dc\u6771\u716e"}, "creat_time": "none", "creator": "", "id": "b1e3c37f-8ca6-4c61-b7c8-0f6e020aea83"}, "bc418215-3fd9-4deb-ad55-754273c3ede0": {"accept": "true", "content": {"menu_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_kbCNZqyy5.jpg", "menu_text": "\u6e2c\u8a66\u6587\u5b57", "prefer_dish_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_b16NIl0ja.jpg", "prefer_dish_text": "\u6e2c\u8a66\u6587\u5b57\u62c9", "restaurant_googlemap_link": "Link", "restaurant_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_6yUrXm3Iu.jpg", "restaurant_num": "001", "restaurant_title": "\u6e2c\u8a66"}, "creat_time": "none", "creator": "", "id": "bc418215-3fd9-4deb-ad55-754273c3ede0"}}, "restaurant_names": ["bc418215-3fd9-4deb-ad55-754273c3ede0", "b1e3c37f-8ca6-4c61-b7c8-0f6e020aea83", "5e831d9d-0875-4c7b-8c4f-918be171de5f", "3fc2bf3a-6307-4233-8557-20f7a38e3d2a"], "restaurant_names_accepted": ["3fc2bf3a-6307-4233-8557-20f7a38e3d2a", "bc418215-3fd9-4deb-ad55-754273c3ede0"]}
+{
+    "restaurant_amount": 5,
+    "restaurant_list": {
+        "2e4e96bf-26c1-48a8-ba72-fb2e6b33eb03": {
+            "accept": "false",
+            "content": {
+                "menu_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_D57fu3I_Z.jpg",
+                "menu_text": "asdfasdf",
+                "prefer_dish_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_5tYnAIIZP.jpg",
+                "prefer_dish_text": "asdfasdf",
+                "restaurant_googlemap_link": "asdfasdf",
+                "restaurant_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_V-yAwITJW.jpg",
+                "restaurant_num": "005",
+                "restaurant_title": "adsfadsf"
+            },
+            "creat_time": "Mon Apr  4 19:20:27 2022",
+            "creator": "",
+            "id": "2e4e96bf-26c1-48a8-ba72-fb2e6b33eb03"
+        },
+        "3fc2bf3a-6307-4233-8557-20f7a38e3d2a": {
+            "accept": "true",
+            "content": {
+                "menu_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_y4vRXRda3.jpg",
+                "menu_text": "\u8272\u8272",
+                "prefer_dish_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_9s0wnYlEu.jpg",
+                "prefer_dish_text": "2006\u5e74",
+                "restaurant_googlemap_link": "http://www.cmoney.tw/vt/game/6698/",
+                "restaurant_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_5dRJnCI4P.jpg",
+                "restaurant_num": "004",
+                "restaurant_title": "\u4f86\u4f86\u98ef\u9928"
+            },
+            "creat_time": "none",
+            "creator": "",
+            "id": "3fc2bf3a-6307-4233-8557-20f7a38e3d2a"
+        },
+        "5e831d9d-0875-4c7b-8c4f-918be171de5f": {
+            "accept": "false",
+            "content": {
+                "menu_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_p0Iamoe2t.jpg",
+                "menu_text": "Hey",
+                "prefer_dish_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_M3NDI5FMJ.jpg",
+                "prefer_dish_text": "Hey",
+                "restaurant_googlemap_link": "Eey",
+                "restaurant_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_wquXSiGed.jpg",
+                "restaurant_num": "003",
+                "restaurant_title": "Vcv"
+            },
+            "creat_time": "none",
+            "creator": "",
+            "id": "5e831d9d-0875-4c7b-8c4f-918be171de5f"
+        },
+        "b1e3c37f-8ca6-4c61-b7c8-0f6e020aea83": {
+            "accept": "false",
+            "content": {
+                "menu_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_tJEHpnR3H.jpg",
+                "menu_text": "\u597d\u5403",
+                "prefer_dish_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_Y_fwLfLek.jpg",
+                "prefer_dish_text": "\u4e3b\u98df\u90a3\u56db\u500b\u90fd\u63a8\u85a6",
+                "restaurant_googlemap_link": "https://goo.gl/maps/gFCETntT8W1UBm467",
+                "restaurant_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_6lsusuxq0.jpg",
+                "restaurant_num": "002",
+                "restaurant_title": "\u85cd\u7378\u4e93\u95dc\u6771\u716e"
+            },
+            "creat_time": "none",
+            "creator": "",
+            "id": "b1e3c37f-8ca6-4c61-b7c8-0f6e020aea83"
+        },
+        "bc418215-3fd9-4deb-ad55-754273c3ede0": {
+            "accept": "true",
+            "content": {
+                "menu_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_kbCNZqyy5.jpg",
+                "menu_text": "\u6e2c\u8a66\u6587\u5b57",
+                "prefer_dish_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_b16NIl0ja.jpg",
+                "prefer_dish_text": "\u6e2c\u8a66\u6587\u5b57\u62c9",
+                "restaurant_googlemap_link": "Link",
+                "restaurant_img_url": "https://ik.imagekit.io/csiejarimgstorage/abc_6yUrXm3Iu.jpg",
+                "restaurant_num": "001",
+                "restaurant_title": "\u6e2c\u8a66"
+            },
+            "creat_time": "none",
+            "creator": "",
+            "id": "bc418215-3fd9-4deb-ad55-754273c3ede0"
+        }
+    },
+    "restaurant_names": [
+        "bc418215-3fd9-4deb-ad55-754273c3ede0",
+        "b1e3c37f-8ca6-4c61-b7c8-0f6e020aea83",
+        "5e831d9d-0875-4c7b-8c4f-918be171de5f",
+        "3fc2bf3a-6307-4233-8557-20f7a38e3d2a",
+        "2e4e96bf-26c1-48a8-ba72-fb2e6b33eb03"
+    ],
+    "restaurant_names_accepted": [
+        "3fc2bf3a-6307-4233-8557-20f7a38e3d2a",
+        "bc418215-3fd9-4deb-ad55-754273c3ede0"
+    ]
+}
