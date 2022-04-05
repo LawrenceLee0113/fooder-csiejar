@@ -105,7 +105,7 @@
                     $.ajax({
                         type: "PUT",
                         url: "https://fooder.csiejar.xyz/edit_data",
-                        data: { "data_num": data_num, "put_data_mode": "header", "accept": accept_checkbox,"passcode":passcode},
+                        data: { "data_num": data_num, "put_data_mode": "header", "accept": accept_checkbox,"password":password},
                         dataType: "json",
                         success: function (response) {
                             alert(response.messenge)
