@@ -90,7 +90,7 @@ def add_data():
   if request.method == "POST":# add restaurant data
 
     data = read_restaurant_data()
-    num = data["restaurant_amount"]
+    num = data["restaurant_add_amount"]
     uuidstr = str(uuid.uuid4())
     data["restaurant_list"][uuidstr]={
             "content": {
@@ -112,6 +112,7 @@ def add_data():
         
     
     data["restaurant_amount"] += 1
+    data["restaurant_add_amount"] += 1
     data["restaurant_names"].append(uuidstr)
     
     print(data)
