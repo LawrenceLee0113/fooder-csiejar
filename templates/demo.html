@@ -65,19 +65,32 @@
     </script>
     <style>
         .setting{
-            width: 100%;
+            width: calc(100% - 17px);
             height: 30px;
             display: flex;
             justify-content: space-between;
             font-size: 20px;
             position: fixed;
-            background-color: #dddddd;;
+            background-color: #dddddd;
+          
 
         }
         .view{
             position: absolute;
             top: 30px;
         }
+       body{
+         scrollbar-width: none;
+       }
+      html {
+  overflow-y: overlay;
+  
+}
+      body{
+        padding-right:17px;
+        width:auto;
+        height:auto;
+      }
     </style>
     <script>
       $(document).ready(function () {
